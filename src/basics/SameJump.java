@@ -18,5 +18,13 @@ public class SameJump {
 		if(x2 > x1 && v2 > v1) {
 			System.out.println("No");
 		}
+			
+		
+		if(((x1 - x2) % (v1 - v2) == 0)) 
+			System.out.println("YES");
+		else {
+			System.out.println("NO");
+		}
+		
 	}
 }
