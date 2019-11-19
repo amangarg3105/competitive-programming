@@ -27,6 +27,9 @@ public class KSmallestElements {
 		 */
 		// Average case Time Complexity = O(nk)
 		// Space Complexity = O(1)
+		if(n == k) {
+			return;
+		}
 		for (int i = k; i < n; i++) {
 			int maximum = arr[k - 1];
 			int position = k - 1;
