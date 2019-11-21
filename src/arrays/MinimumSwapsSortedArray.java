@@ -1,15 +1,29 @@
 package arrays;
 
-import java.util.ArrayList;
+
 
 public class MinimumSwapsSortedArray {
 
 	public static void main(String[] args) {
 
-		int[] arr = {2, 1, 5, 3, 4};
+		int[] arr = {1, 6, 2, 3, 4, 5};
 		int[] temp = new int[arr.length];
-		System.out.println(mergeSort(arr, temp, 0, arr.length - 1));
+		if(checkArray(arr)) {
+			System.out.println(mergeSort(arr, temp, 0, arr.length - 1));
+		} else {
+			System.out.println("Not Possible");
+		}
+		
 
+	}
+
+	private static boolean checkArray(int[] arr) {
+		for(int i = 0; i < arr.length; i++) {
+			if(arr[i] - 1 - i > 2) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/*
@@ -25,6 +39,12 @@ public class MinimumSwapsSortedArray {
 	 * 
 	 *
 	 * 
+	 */
+	
+	
+	/*
+	 * 
+	 * Time Complexity - O(nlogn)
 	 */
 	public static int mergeSort(int[] arr, int[] temp, int low, int high) {
 		int inversionCount = 0;
@@ -48,7 +68,7 @@ public class MinimumSwapsSortedArray {
 				temp[k++] = arr[i++];
 			} else {
 				temp[k++] = arr[j++];
-				inversionCount += mid - i;
+				inversionCount = inversionCount + (mid - i);
 			}
 		}
 
